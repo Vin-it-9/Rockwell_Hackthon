@@ -1,6 +1,5 @@
 package util;
 
-
 import model.AGV;
 import model.NetworkGraph;
 import model.Payload;
@@ -107,6 +106,9 @@ public class DataLoader {
                 network.addRoute(i + 1, j + 1, distance);
             }
         }
+
+        // Critical: Initialize the shortestPath algorithm after adding all routes
+        network.initializeDefaultNetwork();
 
         LOGGER.info("Network initialized with 9 stations");
         return network;
